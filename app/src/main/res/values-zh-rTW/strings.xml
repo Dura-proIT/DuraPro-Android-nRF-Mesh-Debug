@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Durapro-Vehicle-Hi</string>
+    <string name="language">語言: 繁體中文(台灣)，\n更改語言請至手機系統更改</string>
+    <string name="feature_name">Mesh</string>
+    <string name="title_scanner">掃描設備</string>
+    <string name="sub_title_scanning_nodes">尋找未被配對過設備</string>
+    <string name="sub_title_scanning_proxy_node">尋找已被配對過設備</string>
+
+    <string name="unknown_device">未知設備</string>
+    <string name="unknown_address">未知位置</string>
+    <string name="state">開關狀態:</string>
+    <string name="button_unknown">未知</string>
+
+    <string name="ble_permissions_title">需要藍芽權限</string>
+    <string name="ble_permissions_info">從 Android S 開始，應用程式需要藍牙掃描和連接權限才能掃描和連接到藍牙低功耗設備。</string>
+
+    <string name="location_permission_title">需要鄰近裝置權限</string>
+    <string name="location_permission_info">從 Android 6.0 Marshmallow 開始，應用程式需要鄰近設備權限才能掃描低功耗藍牙設備。
+      \n\nThis is because Bluetooth LE beacons, for example iBeacons or Eddystone, may be used to determine the phone\'s and user\'s location.
+        <b>nRF Mesh Provisioner</b> will not use this information in any way.</string>
+    <string name="action_grant_permission">給予權限</string>
+    <string name="action_permission_settings">設定</string>
+
+    <string name="bluetooth_disabled_title">藍芽已關閉</string>
+    <string name="bluetooth_disabled_info">藍芽已關閉。 請點擊下方按鈕將藍芽開啟。</string>
+    <string name="bluetooth_disabled_action">開啟</string>
+
+    <string name="unprovisioned_node_guide_title">搜尋中</string>
+    <string name="unprovisioned_node_guide_info">1. Make sure the DK is <b>turned on</b> and is connected to a power source using a micro USB cable or a coin cell is plugged in.
+        \n\n2. Make sure the <b>relevant</b> firmware and SoftDevice are flashed.</string>
+    <string name="unprovisioned_node_guide_location_info">3. Location is turned off. Some Android phones require it enabled in order to scan for Bluetooth LE devices.
+		If you are sure your Node is advertising and it doesn\'t show up here, click the button below to enable Location.</string>
+    <string name="unprovisioned_node_guide_location_action">啟用</string>
+
+    <string name="state_connecting">連線中</string>
+
+    <string name="yes">是</string>
+    <string name="no">否</string>
+
+    <string name="confirm">確定</string>
+    <string name="cancel">取消</string>
+
+    <string name="help">說明</string>
+    <string name="refresh">重新整理</string>
+
+    <!--導航列-->
+    <string name="navigation_home">首頁</string>
+    <string name="navigation_groups">群組</string>
+    <string name="navigation_truck_lights">燈條</string>
+    <string name="navigation_settings">設定</string>
+
+    <!--卡車首頁-->
+    <string name="main_truck_new_truck_button">新增卡車</string>
+    <string name="main_truck_get_truck_button">前往觀看</string>
+    <string name="main_truck_example_truck1">卡車1</string>
+
+    <!--控制燈-->
+    <string name="open_light">開燈</string>
+    <string name="close_light">關燈</string>
+    <string name="detection_light">讀取狀態</string>
+    <string name="remove_node">移除節點</string>
+
+    <!--移除節點確認框-->
+    <string name="remove_dialog_title">移除節點</string>
+    <string name="remove_dialog_message">您確認將此節點移除嗎?</string>
+
+    <!--Vendor Model的裝置控制-->
+    <string name="device_control">裝置控制</string>
+    <string name="device_control_on">開</string>
+    <string name="device_control_off">關</string>
+    <string name="device_control_error">錯誤</string>
+    <string name="device_control_remove_device">移除裝置</string>
+    <string name="device_control_remove_successful">移除成功</string>
+    <string name="device_control_cmd_fail">指令錯誤</string>
+    <string name="send_cmd">發送指令:</string>
+    <string name="quick_button_text">快速指令按鈕區</string>
+    <string name="all_state_text"> ，完整指令:</string>
+
+    <!--通知頁面-->
+    <string name="notifications_title">通知</string>
+    <string name="notifications_main_tabLayout_all">全部</string>
+    <string name="notifications_main_tabLayout_vlms">車燈</string>
+
+    <!--紀錄頁面-->
+    <string name="logcat_title">紀錄</string>
+    <string name="logcat_clear_title">刪除所有紀錄</string>
+    <string name="logcat_clear_message">確定刪除所有紀錄?</string>
+
+    <!--首頁(MainActivity)-->
+    <string name="disconnect_toast">鎖頭已斷線 Device ID: </string>
+    <string name="connect_toast">鎖頭連線成功 ID: </string>
+    <string name="clickfail_toast">鎖頭未連線</string>
+    <string name="exit_app_title">離開APP</string>
+    <string name="exit_app_message">是否離開Durapro-Vehicle-Hi ?</string>
+
+    <!--Output oob actions-->
+    <string name="beep">Beep</string>
+    <string name="blink">Blink</string>
+    <string name="vibrate">Vibrate</string>
+    <string name="output_numeric">Output Numeric</string>
+    <string name="output_alphanumeric">Output Alphanumeric</string>
+
+    <!--Input oob actions-->
+    <string name="push">Push</string>
+    <string name="input_numeric">Input Number</string>
+    <string name="input_alphanumeric">Input Alphanumeric</string>
+    <string name="title_select_output_oob">Select an Output OOB Action</string>
+    <string name="title_select_input_oob">Select an Input OOB Action</string>
+    <string name="hint_static_oob">e.g. 00112233445566778899001122334455</string>
+    <string name="hint_numeric_action">e.g. 5</string>
+    <string name="hint_numeric">e.g. 019655</string>
+    <string name="hint_alpha_numeric">e.g. 123ABC</string>
+    <string name="error_empty_pin">Error, authentication value cannot be empty!</string>
+    <string name="error_invalid_static_oob">Error, static oob value must be 128 bits!</string>
+
+    <string name="title_select_oob">Select OOB Type</string>
+    <string name="public_key_information_available">Public Key information available</string>
+    <string name="public_key_information_unavailable">Public Key information unavailable</string>
+    <string name="static_oob_information_available">Static OOB information available</string>
+    <string name="static_oob_information_unavailable">Static OOB information unavailable</string>
+    <string name="output_oob_actions_unavailable">Output OOB actions unavailable</string>
+    <string name="input_oob_actions_unavailable">Input OOB actions unavailable</string>
+
+    <string name="sending_prov_invite">Sending provisioning invite…</string>
+
+    <string name="provision_action">配對設備</string>
+    <string name="identify_action">辨識設備</string>
+
+    <string name="ok">確定</string>
+
+    <string name="title_node_details">節點詳細資料</string>
+    <string name="node_name">名稱</string>
+    <string name="node_prov_timestamp">已配對時間</string>
+    <string name="node_identifier">節點辨識</string>
+    <string name="node_unicast_address">單點傳送</string>
+    <string name="node_company_identifier">公司代號</string>
+    <string name="node_product_identifier">產品序號</string>
+    <string name="node_product_version">產品版本</string>
+    <string name="node_replay_protection_count">重播保護計算</string>
+    <string name="node_features">節點特性</string>
+
+    <string name="title_elements">元素</string>
+    <string name="title_node_element_details">元素詳細資料</string>
+
+    <string name="generate_new_key">通用金鑰</string>
+
+    <string name="title_network_name">網路名稱</string>
+    <string name="summary_network_name">輸入網路名稱</string>
+    <string name="hint_global_network_name">網路名稱</string>
+
+    <string name="title_allocated_ranges">分配範圍</string>
+    <string name="not_allocated">未分配</string>
+    <string name="allocated_to_this">指派給此設定者</string>
+    <string name="allocated_to_another">分配給另一個配對裝置</string>
+    <string name="conflicting_with_another">與另一個配對裝置發生衝突</string>
+
+    <string name="title_range">範圍</string>
+    <string name="range_deleted">範圍已刪除。</string>
+    <string name="title_no_ranges">未分配範圍</string>
+    <string name="title_edit_unicast_ranges">編輯單點傳播範圍</string>
+    <string name="title_edit_group_ranges">編輯群組範圍</string>
+    <string name="title_edit_scene_ranges">編輯場景範圍</string>
+    <string name="unicast_range_summary">輸入 4 個字元的十六進制字串形式的下限和上限。\n有效範圍：0x0001 – 0x7FFF</string>
+    <string name="group_range_summary">輸入 4 個字元的十六進制字串形式的下限和上限。\n有效範圍：0xC000 – 0xFEFF</string>
+    <string name="scene_range_summary">輸入 4 個字元的十六進制字串形式的下限和上限。\n有效範圍：0x0001 – 0xFFFF</string>
+
+    <string name="title_provisioners">已配對的設備數量</string>
+    <string name="title_provisioner">設定</string>
+    <string name="provisioner_deleted">此設定已刪除</string>
+    <string name="title_provisioner_address">設定位址</string>
+    <string name="action_add_range">新增範圍</string>
+    <string name="range_adapter_format"> %s - %s</string>
+    <string name="low_address">低位址</string>
+    <string name="high_address">高位址</string>
+    <string name="provisioner_name_rationale">這是用來識別的名稱</string>
+    <string name="title_provisioner_name">設定名稱</string>
+    <string name="title_current_provisioner">目前配對裝置</string>
+    <string name="title_other_provisioner">其他已配對裝置</string>
+    <string name="title_manage_provisioners">管理已配對裝置</string>
+    <string name="title_add_provisioner">新增配對裝置</string>
+    <string name="title_edit_provisioner">編輯設定者</string>
+    <string name="hint_delete_provisioner">提示：滑動即可刪除設定。</string>
+    <string name="provisioner_authentication_title">驗證</string>
+    <string name="provisioner_input_static_oob">Input the 128-bit Static OOB value provided with the device.</string>
+    <string name="provisioner_input_blinks">Input the number of times the device blinked.</string>
+    <string name="provisioner_input_beeps">Input the number of times the device beeped.</string>
+    <string name="provisioner_input_vibrations">Input the number of times the device vibrated.</string>
+    <string name="provisioner_input_numeric">Input the code displayed on the device.</string>
+    <string name="provisioner_input_numeric_device">Key in the following code %s on the device.</string>
+
+    <string name="dialog_summary_src">Hexadecimal value in range 0x0001 – 0x7FFF.</string>
+
+    <string name="network_settings">網路設定</string>
+    <string name="title_net_keys">網路金鑰</string>
+    <string name="unicast_address">Unicast Address: %s</string>
+    <string name="unicast_address_unassigned">Unicast Address: Unassigned</string>
+
+    <string name="title_node_name">節點名稱</string>
+    <string name="summary_name">名稱</string>
+    <string name="node_name_rationale">請設定一個易於辨識的節點名稱</string>
+    <string name="title_element_name">元素名稱</string>
+    <string name="element_name_rationale">請設定一個易於辨識的模型名稱</string>
+    <string name="hint_friendly_name">節點名稱</string>
+
+    <string name="title_primary_net_key">主網路金鑰</string>
+    <string name="title_sub_net_keys">子網路金鑰</string>
+    <string name="hint_network_key">網路金鑰</string>
+    <string name="generate_network_key">通用金鑰</string>
+    <string name="error_empty_network_key">網路金鑰名稱不可為空!</string>
+
+    <string name="title_key_index">金鑰索引</string>
+    <string name="error_empty_key_index">金鑰索引不可為空!</string>
+    <string name="error_invalid_key_index">金鑰索引必須是 0 到 4095!</string>
+
+    <string name="error_empty_iv_index">IV 索引不可為空!</string>
+    <string name="error_invalid_iv_index">IV 索引必須是 0 到 4294967295!</string>
+
+    <string name="title_unicast_address">單點傳播位址</string>
+    <string name="dialog_summary_unicast_address">輸入節點的單點傳播位址。</string>
+    <string name="title_unicast_addresses">單點傳播位址</string>
+    <string name="title_group_addresses">群組位址</string>
+    <string name="title_scenes">場景</string>
+    <string name="hint_unicast_address">單點傳播位址</string>
+    <string name="error_empty_unicast_address">位置不可為空!</string>
+    <string name="no_nodes_provisioned_title">沒有被綁定過的設備</string>
+    <string name="no_nodes_provisioned_rationale">請掃描並新增設備以新增Mesh節點。</string>
+
+    <string name="no_groups_configured_title">沒有群組設定</string>
+    <string name="no_groups_configured_rationale">建立一個群組來控制您的設備。 此處列出的所有群組都可以透過模型訂閱。</string>
+    <string name="group_address_summary">位置: %s</string>
+    <string name="title_edit_group_info">編輯群組</string>
+    <string name="select_a_group_rationale">選擇現有群組</string>
+    <string name="no_available_groups">沒有可用的群組。</string>
+    <string name="create_a_group_rationale">建立新群組進行訂閱</string>
+    <string name="title_create_group">建立群組</string>
+    <string name="title_create_group_summary">選擇地址類型以建立群組</string>
+    <string name="title_subscribe_group">訂閱</string>
+    <string name="error_empty_group_name">群組名稱不可為空!</string>
+    <string name="error_empty_group_address">群組位址不能為空！</string>
+    <string name="error_group_address_in_used">群組位址已被使用！</string>
+    <string name="error_group_unsubscribe_to_delete">請取消訂閱該群組中的模型才能刪除該群組！</string>
+    <string name="group_deleted">群組 %s 已刪除!</string>
+    <string name="no_models_configured_title">沒有模組已配對</string>
+    <string name="no_models_configured_rationale">沒有模型訂閱此群組。</string>
+    <string name="no_app_key_configured_title">沒有應用程式金鑰綁定</string>
+    <string name="no_app_key_configured_rationale">該組中的模型沒有綁定任何應用程式金鑰。 \n點擊選項功能表上的編輯將應用程式金鑰綁定到模型。</string>
+
+    <string name="title_manage_net_keys">管理網路金鑰</string>
+    <string name="key">金鑰</string>
+    <string name="title_net_key">網路金鑰</string>
+    <string name="title_add_net_key">新增網路金鑰</string>
+    <string name="title_edit_net_key">編輯網路金鑰</string>
+    <string name="title_manage_app_keys">管理應用程式金鑰</string>
+    <string name="title_app_key">應用程式金鑰</string>
+    <string name="title_app_keys">應用程式金鑰</string>
+    <string name="title_key_details">金鑰詳細資料</string>
+    <string name="title_add_app_key">新增應用程式金鑰</string>
+    <string name="title_edit_app_key">編輯應用程式金鑰</string>
+    <string name="title_bound_net_key">綁定網路金鑰</string>
+    <string name="summary_edit_key">金鑰必須是 32 個字元的十六進制字串。</string>
+    <string name="title_edit_key">編輯金鑰</string>
+    <string name="title_edit_key_name">編輯金鑰名稱</string>
+    <string name="key_name_rationale">這是一個友善的名稱，可用於識別金鑰。</string>
+    <string name="title_select_app_key">選擇應用程式金鑰</string>
+    <string name="title_select_net_key">選擇網路金鑰</string>
+    <string name="hint_app_key">應用程式金鑰</string>
+    <string name="no_app_keys_title">沒有可用的應用程式金鑰</string>
+    <string name="no_app_keys">沒有可用的應用程式金鑰。</string>
+    <string name="no_app_keys_rationale">設定Mesh節點必須要有應用程式金鑰。
+        請在網路中增加應用程式金鑰。</string>
+    <string name="no_added_app_keys_rationale">將應用程式金鑰綁定到模型需要增加到已配對的Mesh節點。 請回到節點設定畫面中增加一個新的應用程式金鑰</string>
+    <string name="net_key_deleted">網路金鑰已刪除</string>
+    <string name="app_key_deleted">應用程式金鑰已刪除</string>
+    <string name="undo">復原</string>
+    <string name="title_error_provisioning_failed">配對失敗!</string>
+    <string name="provisioning_cancelled">已取消配對!</string>
+
+    <string name="nrf_mesh_node">nRF Mesh 節點</string>
+    <string name="company">公司:</string>
+    <string name="nordic_semiconductor_asa">原始碼為北歐半導體\nNordic Semiconductor ASA 提供</string>
+    <string name="elements">元素:</string>
+    <string name="models">模型:</string>
+
+    <string name="title_appkey_status">應用程式金鑰狀態</string>
+    <string name="title_netkey_status">網路金鑰狀態</string>
+    <string name="error_empty_name">名稱不可為空!</string>
+    <string name="element_address">元素: %s</string>
+    <string name="model_count">%d 模型</string>
+    <string name="format_sig_model_id">SIG 模型 ID: %s</string>
+    <string name="format_vendor_model_id">供應商模型(Vendor Model) ID: %s</string>
+
+    <string name="title_publish_address">發布地址</string>
+    <string name="title_subscription_address">訂閱地址</string>
+    <string name="none">無</string>
+    <string name="no_app_keys_bound">沒有應用程式金鑰綁定於此模型。</string>
+    <string name="title_publish_address_configuration">發布</string>
+    <string name="title_subscription_addresses_configuration">訂閱</string>
+    <string name="action_bind_app_key">綁定金鑰</string>
+    <string name="action_unbind_app_key">解除綁定</string>
+    <string name="action_set_publish_address">發布設定</string>
+    <string name="action_clear_publication">清除發布</string>
+    <string name="action_subscribe_address">訂閱</string>
+    <string name="title_app_key_index">金鑰索引</string>
+    <string name="title_bound_app_keys">綁定應用程式金鑰</string>
+
+    <string name="no_elements_guide_info">找不到任何元素! \n\n嘗試再次設定該節點以查看該節點上有哪些元素可用。您可以透過返回主畫面並連接到該節點來執行此動作。</string>
+    <string name="no_elements_guide_composition_data">找不到任何元素! \n取得組合資料以查看該節點上有哪些元素。</string>
+    <string name="action_connect">連線</string>
+    <string name="action_disconnect">斷開連接</string>
+
+    <string name="hint_publish_address">發布位置</string>
+    <string name="error_empty_publish_address">發布位址不能為空！</string>
+    <string name="title_publication_status">發布狀態</string>
+    <string name="hex_format">0x%s</string>
+    <string name="hex_prefix">0x</string>
+    <string name="invalid_hex_value">十六進制值無效</string>
+    <string name="invalid_address_value">無效位址</string>
+    <string name="invalid_unicast_address">單點傳播位址範圍必須為 0x0001 到 0x7FFF</string>
+    <string name="invalid_group_address">群組位址範圍必須為 0xC000 到 0xFEFF</string>
+    <string name="action_reset_network">重置</string>
+    <string name="title_reset_network">重置Mesh網路</string>
+    <string name="message_reset_network">這將清除與該網路相關的所有儲存資料，並且將無法恢復。 你想繼續嗎？</string>
+    <string name="not_subscribed_to_groups">未訂閱任何群組位置</string>
+    <string name="title_group_address">群組位置</string>
+    <string name="title_configuration_compete">設定已完成</string>
+    <string name="configuration_complete_summary">Mesh節點已設定完成。</string>
+    <string name="action_composition_data">擷取結構資料</string>
+
+    <string name="action_add">新增</string>
+    <string name="action_clear">清除</string>
+    <string name="title_about">關於</string>
+    <string name="summary_version">APP版本 0.9 </string>
+    <string name="title_node_configuration">節點設定</string>
+    <string name="title_added_net_keys">已新增網路金鑰</string>
+    <string name="title_added_app_keys">已新增應用程式金鑰</string>
+    <string name="title_added_keys">已設定的金鑰</string>
+    <string name="title_keys">Keys</string>
+    <string name="title_key">Key</string>
+
+    <string name="title_network_transmit_info">Network Transmit</string>
+    <string name="title_network_transmit">Network Transmit Settings</string>
+    <string name="title_network_transmit_count">Transmit Count</string>
+    <string name="title_network_transmit_interval">Transmit Interval</string>
+    <string name="title_network_transmit_interval_steps">Transmit Interval</string>
+    <string name="action_network_transmit_get">READ STATE</string>
+    <string name="action_network_transmit_set">SET NETWORK TRANSMIT</string>
+    <string name="time_ms">%d ms</string>
+    <string name="time_s">%d s</string>
+    <string name="time_m">%d min</string>
+
+    <string name="title_relay_retransmit_info">中繼</string>
+    <string name="title_relay_retransmit">中繼設定</string>
+    <string name="title_relay_state">中繼</string>
+    <string name="title_relay_retransmit_count">Retransmit Count</string>
+    <string name="title_relay_retransmit_interval">Retransmit Interval</string>
+    <string name="title_relay_retransmit_interval_steps">Retransmit Interval</string>
+    <string name="action_relay_retransmit_set">SET RELAY</string>
+
+    <string name="title_proxy_state_settings">代理狀態</string>
+    <string name="action_proxy_state_set_on">開</string>
+    <string name="action_proxy_state_set_off">關</string>
+    <string name="action_proxy_state_get">讀取狀態</string>
+    <string name="proxy_set_on_rationale">打開代理功能會將此節點設定為可連接狀態並啟用代理伺服器。</string>
+    <string name="proxy_set_on_rationale_summary">Turning on the proxy feature will set this node to a connectable state and enable the proxy server.
+        You will also be able to connect to this node and send mesh messages over GATT. Do you wish to continue?</string>
+    <string name="proxy_set_off_rationale">Turning off the proxy feature will set this node to a non-connectable state and disable the proxy server.</string>
+    <string name="proxy_set_off_rationale_summary">Turning off the proxy feature will set this node to a non-connectable state and disable the proxy server.
+        However, you will still be able to continue sending messages via the other proxy nodes in the network. Do you wish to continue?</string>
+
+    <string name="title_proxy_filter">Proxy Filter Type</string>
+    <string name="title_filter_addresses">Filter Addresses</string>
+    <string name="inclusion_list">Inclusion list</string>
+    <string name="exclusion_list">Exclusion list</string>
+    <string name="proxy_filter_summary">Proxy filter can be used to monitor mesh messages sent across a mesh network.
+        \n\nInclusion list filter blocks all destination addresses except those that have been added to the inclusion list.
+    \n\nThe exclusion list filter accepts all destination addresses except those that have been added to the exclusion list.</string>
+
+    <string name="action_disable">停用</string>
+    <string name="disabled">已停用</string>
+    <string name="hint_remove">Hint: Swipe address to remove.</string>
+    <string name="hint_filter_address">Unicast/Group Address</string>
+    <string name="no_addresses_added">No addresses are added to this filter!</string>
+    <string name="title_add_address">Add Address</string>
+    <string name="address">Address</string>
+    <string name="dialog_summary_filter_address">Addresses to be added to the %s. Supported addresses are Unicast, Group or Virtual Addresses.</string>
+    <string name="invalid_filter_address">Address must be a Unicast, Group or a Virtual Address!</string>
+    <string name="error_empty_filter_address">Add at least one address to confirm!</string>
+
+    <string name="no_app_keys_added">沒有應用程式金鑰新增到此節點。</string>
+    <string name="error_no_app_keys_bound">此模型沒有綁定任何應用程式金鑰。 請先綁定應用程式金鑰！</string>
+    <string name="action_generic_read_state">讀取狀態</string>
+    <string name="action_generic_on">開</string>
+    <string name="action_generic_off">關</string>
+    <string name="transition_time_interval" formatted="false">%s %s</string>
+    <string name="hint_unsubscribe">提示：將上方向左或向右撥動即可取消訂閱</string>
+    <string name="title_generic_on_off_controls">通用開關控制</string>
+    <string name="transition_time">過渡時間</string>
+    <string name="generic_on_off_step_delay">Delay (5ms steps)</string>
+    <string name="generic_state_on">LED開</string>
+    <string name="generic_state_off">LED關</string>
+
+    <string name="title_reset_node">重置節點</string>
+    <string name="action_reset_node">重置Mesh網路</string>
+    <string name="reset_node_rationale">重置此節點會將其已配對狀態改回未配對狀態。</string>
+    <string name="reset_node_rationale_summary">重置此節點會將其已配對狀態改回未配對狀態。 任何與節點相關的資料都將從應用程式中刪除。 你想繼續嗎？</string>
+
+
+    <string name="node_device_key">裝置金鑰</string>
+    <string name="device_key_clipboard_copied">設備金鑰已複製到剪貼簿</string>
+    <string name="unavailable">不可用</string>
+    <string name="hint_unbind">提示:將上方向左或右撥動解除綁定金鑰</string>
+    <string name="hint_delete">提示:撥動刪除</string>
+    <string name="title_transaction_failed">交易失敗</string>
+    <string name="segments_not_received_timed_out">All message segments were not received, operation timed out!</string>
+    <string name="operation_timed_out">Operation timed out</string>
+    <string name="element_count_title">元素數量</string>
+    <string name="supported_algorithms_title">Supported Algorithms</string>
+    <string name="public_key_type_title">Public Key Type</string>
+    <string name="static_oob_type_title">Static OOB Type</string>
+    <string name="output_oob_size_title">Output OOB Size</string>
+    <string name="supported_output_oob_actions_title">Supported Output OOB Actions</string>
+    <string name="supported_input_oob_actions_title">Supported Input OOB Actions</string>
+    <string name="input_oob_size_title">Input OOB Size</string>
+    <string name="unknown">未知</string>
+
+    <string name="title_vendor_model_controls">供應商模型設定</string>
+    <string name="opcode">不含公司ID的指令碼</string>
+    <string name="parameters">參數</string>
+    <string name="received_message">狀態:</string>
+    <string name="group_received_message">群組狀態:</string>
+    <string name="group_send_cmd">群組發送指令:</string>
+    <string name="action_send">送出</string>
+    <string name="error_empty_value">值不能為空</string>
+    <string name="message_type">已確認的訊息</string>
+    <string name="enforce_vendor_op_code">0xC0 | 0x</string>
+    <string name="title_address">位址</string>
+    <string name="title_retransmission">訊息重傳</string>
+    <string name="title_retransmit_count">重傳次數</string>
+    <string name="title_interval_steps">間隔步驟</string>
+    <string name="title_publish_period">發佈時間</string>
+    <string name="title_publish_period_steps">步驟</string>
+    <string name="title_publication_resolution">解決</string>
+    <string name="title_security_credentials">安全憑證</string>
+    <string name="title_friendship_credentials_flag">友誼證書標誌</string>
+    <string name="title_ttl">存活時間</string>
+    <string name="title_publish_ttl">發布存活時間</string>
+    <string name="title_publication_settings">發布設定</string>
+    <string name="hint_retransmit_count">Retransmit count</string>
+    <string name="hint_publication_interval_steps">Retransmission interval steps</string>
+    <string name="error_empty_pub_retransmit_count">Retransmit count cannot be empty!</string>
+    <string name="error_invalid_pub_retransmit_count">Publish retransmit count must be in range of 0 to 7!</string>
+    <string name="error_empty_pub_retransmit_interval_steps">Publish retransmit interval steps cannot be empty!</string>
+    <string name="error_invalid_pub_retransmit_interval_steps">Publish retransmit interval steps must be in range of 0 to 31!</string>
+    <string name="error_empty_publication_steps">Number of publication steps cannot be empty!</string>
+    <string name="error_invalid_publication_steps">Publication period steps must be in range of 0 to 63!</string>
+    <string name="error_empty_ttl">TTL cannot be empty!</string>
+    <string name="error_invalid_publish_ttl">Publish TTL value must be in range of 0 to 127!</string>
+    <string name="title_default_ttl">預設存活時間</string>
+    <string name="error_invalid_default_ttl">預設 存活時間 值必須為 0 或範圍為 2 – 127！</string>
+    <string name="summary_ttl">預設 存活時間 值必須為 0 或範圍為 0 – 127！</string>
+    <string name="action_get_default_ttl">取得存活時間</string>
+    <string name="action_set_default_ttl">設定存活時間</string>
+
+    <string name="dialog_summary_retransmit_count">Enter the desired number of retransmissions.</string>
+    <string name="dialog_summary_interval_steps">Enter the desired number of interval steps for retransmission. \n\n1 step = 50ms</string>
+    <string name="dialog_summary_publication_steps">Enter the desired number of steps for publication period.</string>
+    <string name="dialog_summary_publish_ttl">輸入所需存活時間。</string>
+    <string name="resolution_summary_100_ms">100 milliseconds</string>
+    <string name="resolution_summary_1_s">1秒</string>
+    <string name="resolution_summary_10_s">10秒</string>
+    <string name="resolution_summary_100_m">10分鐘</string>
+
+    <string name="app_key_index">App key index %d</string>
+    <string name="key_name_and_index">Name: %s\nIndex: %d</string>
+
+    <string name="action_apply">套用</string>
+    <string name="action_save">儲存</string>
+
+    <string-array name="arr_publication_resolution">
+        <item>100毫秒</item>
+        <item>1秒</item>
+        <item>10秒</item>
+        <item>10分鐘</item>
+    </string-array>
+
+    <string name="hint_publish_ttl">存活時間 範圍從 0 到 127</string>
+    <string name="hint_publication_steps">Publication steps</string>
+    <string name="model_id">模組 ID: %s</string>
+    <string name="title_disconnected_error">Error</string>
+    <string name="disconnected_network_rationale">連線到代理節點以繼續進行設定</string>
+    <string name="remaining_time">Rem. Time: %s</string>
+    <string name="generic_level">Level</string>
+    <string name="generic_level_percent">%d%%</string>
+    <string name="title_generic_level_controls">Generic Level Controls</string>
+    <string name="invalid_value">無效值！</string>
+    <string name="use_default_ttl">使用預設發布存活時間 (0xFF)</string>
+    <string name="uses_default_ttl">使用預設發布存活時間 (0xFF)</string>
+    <string name="action_import_network">匯入網路</string>
+    <string name="action_export_network">匯出資料</string>
+    <string name="title_network_import">匯入網路</string>
+    <string name="title_network_export">匯出網路</string>
+    <string name="network_import_rationale">匯入新的Mesh網路資訊將從應用程式中刪除現有的網路資訊。您想繼續嗎？ \n\n 注意：您也可以在匯入之前匯出現有的網路資訊。</string>
+    <string name="title_permission_required">需要權限許可</string>
+    <string name="external_storage_permission_required">將Mesh網路資訊匯出到外部儲存目錄中的檔案需要權限存取外部儲存。</string>
+    <string name="permission_rationale_settings"> 您可以透過導航至應用程式設定來授予此權限。</string>
+    <string name="settings">設定</string>
+    <string name="ext_storage_permission_denied">Unable to export network, external storage permission denied!</string>
+    <string name="title_init_config_error">初始化設定失敗</string>
+    <string name="provisioner_unassigned_msg">Unable to configure node. Please assign an address to the provisioner to continue configuration.</string>
+    <string name="init_config_error_net_transmit_msg">節點的初始設定失敗。
+         繼續執行以下步驟來設定節點\n\n
+         步驟 1. 連接到網路。\n\n
+         步驟 2. 點擊節點。\n\n
+         步驟 3. 打開設定伺服器設定。\n\n
+         步驟 4. 將傳輸計數設定為 3，並將傳輸間隔設定為 20 毫秒。</string>
+    <string name="init_config_error_default_ttl_get_msg">節點的初始設定失敗。
+        繼續執行以下步驟來設定節點\n\n
+        步驟 1. 連接到網路。\n\n
+        步驟 2. 點擊節點。\n\n
+        Step 3. 擷取預設存活時間。</string>
+    <string name="init_config_error_app_key_msg">節點的初始設定失敗。
+        繼續執行以下步驟來設定節點\n\n
+        步驟 1. 連接到網路。\n\n
+        步驟 2. 點擊節點。\n\n
+        步驟 3. 新增應用程式金鑰。</string>
+    <string name="init_config_error_all">節點的初始設定失敗。
+        繼續執行以下步驟來設定節點\n\n
+        步驟 1. 連接到網路。\n\n
+        步驟 2. 點擊節點。\n\n
+        步驟 3. 點擊擷取結構資料。\n\n
+        步驟 4. 擷取預設存活時間。\n\n
+        步驟 5. 新增應用程式金鑰。</string>
+    <string name="network_transmit_interval_steps_summary">10 ms step(s)</string>
+    <string name="please_connect_to_network">請連接Mesh網路來控制設備！</string>
+    <string name="action_edit">編輯</string>
+    <string name="generate_uuid">產生標籤 UUID</string>
+    <string name="publish_address_dialog_summary">發布該模型的位址。</string>
+    <string name="subscription_address_dialog_summary">此模型的訂閱位址。</string>
+    <string name="label_uuid_summary">標籤UUID:</string>
+    <string name="label_uuid">標籤UUID</string>
+    <string name="name">名稱</string>
+    <string name="action_add_app_key">新增應用程式金鑰</string>
+    <string name="action_add_sub_net_key">新增子網路金鑰</string>
+    <string name="hint_delete_key">Hint: Swipe to delete a key.</string>
+    <string name="title_error">錯誤</string>
+    <string name="not_assigned">Not assigned</string>
+    <string name="action_resolve">Resolve</string>
+    <string name="first_scene">First Scene</string>
+    <string name="last_scene">Last Scene</string>
+    <string name="automatic">Automatic</string>
+    <string name="action_unassign">Unassign</string>
+    <string name="address_unassigned">Unassigned</string>
+    <string name="action_add_node">新增設備</string>
+    <string name="action_create_group">建立群組</string>
+    <string name="title_unassign_provisioner">Unassign Provisioner</string>
+    <string name="summary_unassign_provisioner">Unassigning a provisioner will disable its configuration capabilities and delete the corresponding node.</string>
+    <string name="virtual_address">虛擬位址</string>
+    <string name="no_allocated_group_range">Please allocate a range of group addresses for the provisioner.</string>
+    <string name="title_details">詳細資料</string>
+    <string name="more">詳細資料</string>
+    <string name="title_delete_node">刪除節點</string>
+    <string name="delete_node_rationale">手動刪除節點不會將該節點重置並將從節點列表中刪除。
+        這還會將該節點已使用的位置被加入至排除清單內，造成該位置不可使用。 該位置空間只能在目前 IV 索引增加 2 後才能使用，一旦 IV 索引更新過程完成，網絡將恢復正常運作。
+        \n\n此步驟無法取消，您必須手動重置該節點。 \n\n你想繼續嗎？</string>
+    <string name="node_deleted">節點已刪除</string>
+    <string name="interval">間隔時間</string>
+    <string name="adding_net_key">正在新增網路金鑰…</string>
+    <string name="deleting_net_key">正在刪除網路金鑰…</string>
+    <string name="adding_app_key">正在新增應用程式金鑰…</string>
+    <string name="deleting_app_key">正在刪除應用程式金鑰…</string>
+    <string name="operation_success">儲存成功。</string>
+    <string name="listing_model_configuration">正在列出模型設定…</string>
+    <string name="title_sig_model_subscription_list">SIG Model Subscription List</string>
+    <string name="title_vendor_model_subscription_list">Vendor Model Subscription List</string>
+    <string name="title_sig_model_app_list">SIG Model App List</string>
+    <string name="title_vendor_model_app_list">Vendor Model App List</string>
+    <string name="title_subscription_status">Subscription Status</string>
+    <string name="set_as_current_provisioner">設定為目前設定者</string>
+    <string name="title_error_network_import">Network Import Error</string>
+
+    <string name="title_iv_test_mode">IV 測試模式</string>
+    <string name="iv_test_mode_summary">注意：重新開啟APP後不會恢復此設定。</string>
+    <string name="title_heartbeat_publication">Heartbeat Publication</string>
+    <string name="title_publication_count">Publication Count</string>
+    <string name="title_publication_period">Publication Period</string>
+    <string name="title_heartbeat_subscription">Heartbeat Subscription</string>
+    <string name="title_subscription_period">Subscription Period</string>
+    <string name="title_subscription_count">Subscription Count</string>
+    <string name="title_features">Features</string>
+    <string name="do_not_send_periodically">Do not send periodically</string>
+    <string name="indefinitely">Send indefinitely</string>
+    <string name="relay">Relay</string>
+    <string name="proxy">Proxy</string>
+    <string name="friend">Friend</string>
+    <string name="low_power">Low Power</string>
+    <string name="title_net_key_index">Net Key Index</string>
+    <string name="count_summary">= %d</string>
+    <string name="equals">=</string>
+    <string name="seconds">%d seconds</string>
+    <string name="minutes_seconds">%d min %d sec</string>
+    <string name="hours_minutes_seconds">%d h %d min %d sec</string>
+    <string name="messages">%d messages</string>
+    <string name="count">Count</string>
+    <string name="remaining_count">Remaining count</string>
+    <string name="title_heartbeat_publication_status">Heartbeat Publication Status</string>
+    <string name="title_heartbeat_subscription_status">Heartbeat Subscription Status</string>
+    <string name="source">Source</string>
+    <string name="source_address">Source Address</string>
+    <string name="destination">Destination</string>
+    <string name="destination_address">Destination Address</string>
+    <string name="error_set_src">Error, set source address.</string>
+    <string name="error_set_dst">Error, set destination address.</string>
+    <string name="remaining_period">Remaining Period</string>
+    <string name="hops">Hops</string>
+    <string name="min_hops">Min Hops</string>
+    <string name="max_hops">Max Hops</string>
+    <string name="dialog_summary_heartbeat_source">Source address must be a unicast address.</string>
+    <string name="dialog_summary_heartbeat_destination">Destination address must be the primary unicast address of the node,
+        or a group address.</string>
+    <string name="invalid_heartbeat_subscription">Source address must be a unicast address!</string>
+    <string name="hint_heartbeat_subscription_source">Unicast address</string>
+    <string name="action_refresh">重新整理</string>
+    <string name="heartbeat_subscription_not_set">Not subscribed to heartbeat messages.</string>
+    <string name="heartbeat_publication_not_set">Not publishing heartbeat messages.</string>
+    <string name="period">Period</string>
+    <string name="info">資訊</string>
+    <string name="iv_test_mode_info">IV 更新測試模式允許過渡到後續 IV 索引，而無需等待至少 96 小時。 轉換將在收到有效的安全網路訊號後發生。</string>
+    <string name="title_stored_scenes">Stored Scenes</string>
+    <string name="no_scenes_title">No scenes available</string>
+    <string name="action_add_scene">新增場景</string>
+    <string name="title_manage_scenes">管理場景</string>
+    <string name="scene_deleted">場景已刪除!</string>
+    <string name="add_scene">新增場景</string>
+    <string name="store_scene">Store Scene</string>
+    <string name="edit_scene">編輯場景</string>
+    <string name="number">Number</string>
+    <string name="scene_number_rationale">Valid range 0x0001–0xFFFF</string>
+    <string name="invalid_scene_number">Invalid value, valid range 0x0000–0xFFFF</string>
+    <string name="hint_delete_scene">Hint: Swipe to delete scene.</string>
+    <string name="title_select_scene">Select Scene</string>
+    <string name="no_scenes_stored">No scenes stored.</string>
+    <string name="no_scenes_stored_rationale">No scenes stored, store a scene via the Scene Setup Server.</string>
+    <string name="title_current_Scene">Current Scene</string>
+    <string name="action_get">取得</string>
+    <string name="action_read">讀取</string>
+    <string name="title_recall_scene">Recall Scene</string>
+    <string name="hint_current_scene">Hint: Click on a scene to recall.</string>
+    <string name="custom_transition_time_and_delay">Custom Transition Time and Delay</string>
+    <string name="action_recall">Recall</string>
+    <string name="configuration">設定</string>
+    <string name="export_everything">匯出所有內容</string>
+    <string name="export_full_configuration">完整設定將包含儲存在該裝置上的所有Mesh網路資料。
+        \n\n與其他使用者分享時，請考慮建立一個新的網路金鑰和一組公開應用程式金鑰，將它們發送到要與其他使用者分享的節點，並綁定到所需的模型。 然後僅匯出此網路金鑰以及排除的裝置金鑰。 \n\n底層函式庫允許指定要共享的節點、群組或場景。 此應用程式將僅共用那些使用指定網路金鑰的應用程式。
+    </string>
+    <string name="export">Export</string>
+    <string name="hint_select_atleast_provisioner">Hint: Select at least one provisioner.</string>
+    <string name="hint_net_key_export">提示：必須至少選擇一個網路金鑰。 只有儲存選定金鑰和與其綁定的應用程式金鑰的節點才會被匯出。</string>
+    <string name="export_device_keys">Export Device Keys</string>
+    <string name="device_keys">裝置金鑰</string>
+    <string name="hint_device_keys">Hint: Device keys allow nodes to be reconfigured or reset (removed from the network).</string>
+    <string name="add">新增</string>
+    <string name="error_select_one_network_key_at_least">錯誤，必須至少選擇一個網路金鑰！</string>
+    <string name="error_select_one_provisioner_at_least">錯誤，必須至少選擇一個 Provisioner！</string>
+
+    <string name="error_empty_key">錯誤，金鑰不可為空!</string>
+
+    <string name="error_prohibited">Prohibited!</string>
+    <string name="error_invalid_pdu">The provisioning protocol PDU is not recognized by the device!</string>
+    <string name="error_invalid_format">The arguments of the protocol PDUs are outside expected values or the length of the PDU is different than expected!</string>
+    <string name="error_confirmation_failed">The computed confirmation value was not successfully verified!</string>
+    <string name="error_decryption_failed">The Data block was not successfully decrypted!</string>
+    <string name="error_unexpected_error">An unexpected error occurred that may not be recoverable!</string>
+    <string name="error_cannot_assign_addresses">The device cannot assign consecutive unicast addresses to all elements!</string>
+    <string name="error_rfu">Reserved for Future Use!</string>
+    <string name="error_invalid_key_length">Error, key length must be 16-bytes</string>
+    <string name="title_exclude_node">排除節點</string>
+    <string name="exclude">Exclude</string>
+    <string name="excluded">Excluded</string>
+    <string name="node_exclusion_summary">如果開啟此選項，節點將被排除在金鑰交換過程之外。 金鑰重新整理過程完成後，該節點將無法再接收或向Mesh網路發送訊息。</string>
+    <string name="node_security_summary">A node is mark as secured if it is provisioned using a public key was obtained out of band.</string>
+    <string name="continue_confirmation">This cannot be undone, do you want to continue?</string>
+    <string name="secure_network_beacon">Secure Network Beacon</string>
+    <string name="secure_network_beacon_state_summary">The Secure Network Beacon state determines if a node is periodically broadcasting Secure
+        Network Beacons.</string>
+    <string name="friend_feature">Friend Feature</string>
+    <string name="friend_feature_summary">The Friend Feature state indicates support for the Friend feature. Disabling this feature will terminate
+        all Friend relationships and clear the associated Friend Queue.</string>
+    <string name="old_key">舊金鑰</string>
+    <string name="na">N/A</string>
+    <string name="phase">階段</string>
+    <string name="security">安全性</string>
+    <string name="secure">來源</string>
+    <string name="insecure">Insecure</string>
+    <string name="last_modified">最後修改</string>
+    <string name="node_identity_state">節點辨識狀態</string>
+    <string name="node_identity_summary">The Node Identity state determines if a node is advertising with Node Identity messages on a subnet.
+        If the Mesh Proxy Service is exposed, the node can be configured to advertise with Node Identity on a subnet.</string>
+    <string name="title_sensor_information">Sensor Information</string>
+    <string name="error_empty_scene_name">Error empty scene name</string>
+    <string name="unknwon_error">未知錯誤</string>
+    <string name="error_allocate_group_range">Provisioner must have an allocated group range!</string>
+
+
+    <string name="title_public_key">Public Key</string>
+    <string name="hint_public_key">Public key</string>
+    <string name="message_public_key">Enter the 128-character hexadecimal Public Key of the device.</string>
+    <string name="skip">跳過</string>
+    <string name="skip_oob_public_key_summary">Skipping this process will mark the provisioned node and any Network Key associated with this node as insecure.</string>
+    <string name="new_device_page_refresh">重新整理</string>
+
+    <string-array name="parameters">
+        <item>F00000000000F0F1</item>
+        <item>F00100000000F1F1</item>
+        <item>F00300000000F3F1</item>
+        <item>F0FC00000000ECF1</item>
+    </string-array>
+</resources>

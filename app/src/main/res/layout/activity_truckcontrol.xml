@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ScannerViewModel"
+            type="no.nordicsemi.android.nrfmesh.viewmodels.ScannerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/AppTheme.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                style="@style/AppTheme.AppBarOverlay"
+                app:logo="@drawable/logo"
+                app:titleTextColor="@color/black" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_network"
+            android:name="no.nordicsemi.android.nrfmesh.NetworkFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/app_bar_layout" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_groups"
+            android:name="no.nordicsemi.android.nrfmesh.GroupsFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/app_bar_layout" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_proxy"
+            android:name="no.nordicsemi.android.nrfmesh.ProxyFilterFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/app_bar_layout" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_settings"
+            android:name="no.nordicsemi.android.nrfmesh.SettingsFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/app_bar_layout"
+            tools:ignore="UnknownIdInLayout" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/cordinator_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:elevation="6dp"
+            app:layout_behavior="null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/testButton"
+            android:layout_width="113dp"
+            android:layout_height="63dp"
+            android:text="test"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="86dp"
+            tools:layout_editor_absoluteY="383dp" />
+
+        <!-- <include
+                 android:id="@+id/truck_main"
+                 layout="@layout/fragment_main_truck"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:visibility="visible"
+                 app:layout_constraintTop_toTopOf="parent" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

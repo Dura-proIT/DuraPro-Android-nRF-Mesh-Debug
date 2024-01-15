@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2018, Nordic Semiconductor
+  ~ All rights reserved.
+  ~
+  ~ Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+  ~
+  ~ 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+  ~
+  ~ 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the
+  ~ documentation and/or other materials provided with the distribution.
+  ~
+  ~ 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this
+  ~ software without specific prior written permission.
+  ~
+  ~ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ~ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ~ HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ~ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+  ~ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+  ~ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  -->
+
+<resources>
+	<!-- Main theme customization per API. -->
+	<style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+		<item name="colorPrimary">@color/md_theme_light_primary</item>
+		<item name="colorPrimaryDark">@color/seed</item>
+		<item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
+		<item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
+		<item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
+		<item name="colorSecondary">@color/md_theme_light_secondary</item>
+		<item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
+		<item name="colorSecondaryContainer">@color/md_theme_light_secondaryContainer</item>
+		<item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
+		<item name="colorTertiary">@color/md_theme_light_tertiary</item>
+		<item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
+		<item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>
+		<item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>
+		<item name="colorError">@color/md_theme_light_error</item>
+		<item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
+		<item name="colorOnError">@color/md_theme_light_onError</item>
+		<item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
+		<item name="android:colorBackground">@color/md_theme_light_background</item>
+		<item name="colorOnBackground">@color/md_theme_light_onBackground</item>
+		<item name="colorSurface">@color/md_theme_light_surface</item>
+		<item name="colorOnSurface">@color/md_theme_light_onSurface</item>
+		<item name="colorSurfaceVariant">@color/md_theme_light_surfaceVariant</item>
+		<item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
+		<item name="colorOutline">@color/md_theme_light_outline</item>
+		<item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
+		<item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
+		<item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
+		<item name="android:textColorPrimary">@color/titleColor</item>
+
+		<!--狀態列背景顏色及文字顏色-->
+		<item name="android:statusBarColor">@color/seed</item>
+		<item name="android:windowLightStatusBar">true</item>
+
+		<!--Floating Action Button(FAB)按鈕外觀-->
+		<item name="extendedFloatingActionButtonStyle">@style/Widget.App.ExtendedFloatingActionButton</item>
+	</style>
+
+
+
+	<!--個別元件自訂樣式-->
+	<!--全螢幕顯示表單頁面-->
+	<style name="FullDialogStyle" parent="Theme.Material3.Light.NoActionBar">
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
+	</style>
+
+	<!--AppBar外觀調整-->
+	<style name="AppTheme.AppBarOverlay" parent="Widget.Material3.AppBarLayout">
+		<item name="android:background">@color/seed</item>
+		<item name="android:textColor">@color/black</item>
+		<item name="titleTextColor">@color/black</item>
+		<item name="subtitleTextColor">@color/black</item>
+		<item name="navigationIconTint">@color/black</item>
+	</style>
+
+	<!--ToolBar外觀更改-->
+	<style name="ToolBarStyle">
+		<item name="titleTextColor">@color/black</item>
+		<item name="subtitleTextColor">@color/black</item>
+		<item name="navigationIconTint">@color/black</item>
+	</style>
+
+
+	<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light">
+	</style>
+
+	<!--Floating Action Button(FAB)按鈕外觀-->
+	<style name="Widget.App.ExtendedFloatingActionButton" parent="Widget.Material3.ExtendedFloatingActionButton.Icon.Primary">
+		<item name="android:backgroundTint">@color/md_theme_light_primary</item>
+		<item name="android:textColor">@color/white</item>
+		<item name="android:tint">@color/white</item>
+		<item name="iconTint">@color/white</item>
+	</style>
+
+	<style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+		<item name="android:textSize">18sp</item>
+	</style>
+
+
+
+	<!--原版區域顏色-->
+	<style name="AppTheme.Base" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+		<!-- All buttons should not have border, except specified otherwise -->
+		<item name="materialButtonStyle">@style/BlueTextButton</item>
+		<!-- All TextInputLayout should use OutlinedBox style  -->
+		<item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox
+		</item>
+
+		<!--<item name="alertDialogTheme">@style/CustomDialogTheme</item>-->
+
+		<item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>
+	</style>
+
+	<style name="Widget" />
+
+	<style name="Widget.InfoWarningTitles">
+		<item name="android:textColor">?android:textColorSecondary</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+
+	<style name="BlueTextButton" parent="Widget.MaterialComponents.Button.TextButton">
+		<item name="android:textColor">@drawable/blue_button_states</item>
+	</style>
+
+	<style name="RedButton" parent="Widget.MaterialComponents.Button.TextButton">
+		<item name="android:textColor">@drawable/red_button_states</item>
+	</style>
+
+	<style name="CustomBottomSheetDialog" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+		<item name="colorPrimary">@color/md_theme_light_primary</item>
+		<item name="colorSecondary">@color/md_theme_light_secondary</item>
+		<!-- All buttons should not have border, except specified otherwise -->
+		<item name="materialButtonStyle">@style/BlueTextButton</item>
+		<item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox
+		</item>
+	</style>
+
+	<style name="CustomDialogTheme" parent="Theme.MaterialComponents.Dialog.Alert">
+		<item name="colorPrimary">@color/md_theme_light_primary</item>
+		<item name="colorSecondary">@color/md_theme_light_secondary</item>
+	</style>
+
+
+
+	<style name="ThemeOverlay.App.Switch" parent="">
+		<item name="colorSecondary">@color/red</item>
+	</style>
+	<style name="Widget.App.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">
+		<item name="materialThemeOverlay">@style/ThemeOverlay.App.Switch</item>
+	</style>
+
+
+	<style name="dialog_style" parent="@style/AppTheme">
+		<item name="android:windowBackground">#00FFFFFF</item>
+		<item name="android:windowIsTranslucent">true</item>
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowAnimationStyle">@null</item>
+
+	</style>
+</resources>
