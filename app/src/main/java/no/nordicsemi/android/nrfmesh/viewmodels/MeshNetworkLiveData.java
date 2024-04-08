@@ -62,8 +62,12 @@ public class MeshNetworkLiveData extends LiveData<MeshNetworkLiveData> {
      *
      * @param meshNetwork provisioning settings
      */
-    void refresh(@NonNull final MeshNetwork meshNetwork) {
+    public void refresh(@NonNull final MeshNetwork meshNetwork) {
         this.meshNetwork = meshNetwork;
+        postValue(this);
+    }
+
+    public void refresh() {
         postValue(this);
     }
 

@@ -22,6 +22,8 @@
 package no.nordicsemi.android.mesh.transport;
 
 import no.nordicsemi.android.mesh.logger.MeshLogger;
+
+import android.util.Log;
 import android.util.SparseArray;
 
 import org.spongycastle.crypto.InvalidCipherTextException;
@@ -29,7 +31,9 @@ import org.spongycastle.crypto.InvalidCipherTextException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -206,7 +210,7 @@ abstract class NetworkLayer extends LowerTransportLayer {
 
             MeshLogger.verbose(TAG, "Sequence Number: " + MeshParserUtils.bytesToHex(sequenceNum, false));
 
-            final byte[] nonce = createNetworkNonce(ctlTTL, sequenceNum, src, message.getIvIndex());
+            final byte[] nonce = createNetworkNonce(ctlTTL, Objects.requireNonNull(sequenceNum), src, message.getIvIndex());
             encryptedNetworkPayload = encryptPdu(lowerTransportPdu, encryptionKey, nonce, message.getDst(), SecureUtils.getNetMicLength(message.getCtl()));
             if (encryptedNetworkPayload == null)
                 return null;
@@ -228,6 +232,7 @@ abstract class NetworkLayer extends LowerTransportLayer {
                 .put(encryptedNetworkPayload)
                 .array();
         message.getNetworkLayerPdu().put(segment, pdu);
+
         return message;
     }
 
@@ -252,6 +257,7 @@ abstract class NetworkLayer extends LowerTransportLayer {
                                    @NonNull final byte[] decryptedNetworkPayload,
                                    final int ivIndex,
                                    @NonNull final byte[] sequenceNumber) throws ExtendedInvalidCipherTextException {
+
         mMeshNode = node;
         final Provisioner provisioner = mNetworkLayerCallbacks.getProvisioner();
         final int ctlTtl = networkHeader[0];
@@ -259,6 +265,7 @@ abstract class NetworkLayer extends LowerTransportLayer {
         final int ttl = ctlTtl & 0x7F;
         MeshLogger.verbose(TAG, "TTL for received message: " + ttl);
         final int src = MeshParserUtils.unsignedBytesToInt(networkHeader[5], networkHeader[4]);
+
         if (ctl == 1) {
             return parseControlMessage(key, provisioner.getProvisionerAddress(), data, networkHeader, decryptedNetworkPayload, src, sequenceNumber);
         } else {
@@ -286,6 +293,7 @@ abstract class NetworkLayer extends LowerTransportLayer {
                                              final int src,
                                              @NonNull final byte[] sequenceNumber,
                                              int ivIndex) throws ExtendedInvalidCipherTextException {
+
         try {
             int receivedTtl = networkHeader[0] & 0x7F;
             final int dst = MeshParserUtils.unsignedBytesToInt(decryptedNetworkPayload[1], decryptedNetworkPayload[0]);
@@ -333,7 +341,20 @@ abstract class NetworkLayer extends LowerTransportLayer {
                     message.setDst(dst);
                     parseUpperTransportPDU(message);
                     parseAccessLayerPDU(message);
+
+                    Log.e("顯示Log紀錄","(1)顯示回傳裝置:" + message.getSrc());
+
+                    // 字節數組，格式範例為[-16, -96, 1, 0, 0, 0, -111, -15]，十六進制字串變數為例如:F0A00100000091F1
+                    byte[] messageParameters = message.getParameters();
+                    StringBuilder sb = new StringBuilder();
+                    for(byte b : messageParameters) {
+                        sb.append(String.format("%02X", b & 0xFF));
+                    }
+                    String deviceStateFormat = sb.toString();
+
+                    Log.e("顯示Log紀錄","(1)顯示裝置回傳指令(16進制):" + deviceStateFormat);
                 }
+
                 return message;
 
             } else {
@@ -348,6 +369,7 @@ abstract class NetworkLayer extends LowerTransportLayer {
                 final AccessMessage message = parseUnsegmentedAccessLowerTransportPDU(pdu, ivIndex, sequenceNumber);
                 if (message == null)
                     return null;
+
                 message.setNetworkKey(key);
                 message.setIvIndex(MeshParserUtils.intToBytes(ivIndex));
                 final SparseArray<byte[]> pduArray = new SparseArray<>();
@@ -359,10 +381,24 @@ abstract class NetworkLayer extends LowerTransportLayer {
                 message.setSequenceNumber(sequenceNumber);
                 parseUpperTransportPDU(message);
                 parseAccessLayerPDU(message);
+
+                Log.e("顯示Log紀錄","(2)顯示回傳裝置:" + message.getSrc());
+                Log.e("顯示Log紀錄","(2)顯示裝置回傳指令(字節數組):" + Arrays.toString(message.getParameters()));
+
+                // 字節數組，格式範例為[-16, -96, 1, 0, 0, 0, -111, -15]，十六進制字串變數為例如:F0A00100000091F1
+                byte[] messageParameters = message.getParameters();
+                StringBuilder sb = new StringBuilder();
+                for(byte b : messageParameters) {
+                    sb.append(String.format("%02X", b & 0xFF));
+                }
+                String deviceStateFormat = sb.toString();
+
+                Log.e("顯示Log紀錄","(2)顯示裝置回傳指令(16進制):" + deviceStateFormat);
+
                 return message;
             }
         } catch (InvalidCipherTextException ex) {
-            throw new ExtendedInvalidCipherTextException(ex.getMessage(), ex.getCause(), TAG);
+            throw new ExtendedInvalidCipherTextException(Objects.requireNonNull(ex.getMessage()), ex.getCause(), TAG);
         }
     }
 
@@ -385,6 +421,7 @@ abstract class NetworkLayer extends LowerTransportLayer {
                                                @NonNull final byte[] decryptedNetworkPayload,
                                                final int src,
                                                @NonNull final byte[] sequenceNumber) throws ExtendedInvalidCipherTextException {
+
         try {
             final int ttl = networkHeader[0] & 0x7F;
             final int dst = MeshParserUtils.unsignedBytesToInt(decryptedNetworkPayload[1], decryptedNetworkPayload[0]);
@@ -425,7 +462,7 @@ abstract class NetworkLayer extends LowerTransportLayer {
                     return null;
             }
         } catch (InvalidCipherTextException ex) {
-            throw new ExtendedInvalidCipherTextException(ex.getMessage(), ex.getCause(), TAG);
+            throw new ExtendedInvalidCipherTextException(Objects.requireNonNull(ex.getMessage()), ex.getCause(), TAG);
         }
     }
 
@@ -448,6 +485,7 @@ abstract class NetworkLayer extends LowerTransportLayer {
                                                           final int src,
                                                           final int dst,
                                                           @NonNull final byte[] sequenceNumber) throws ExtendedInvalidCipherTextException {
+
         final ControlMessage message = new ControlMessage();
         message.setNetworkKey(key);
         message.setIvIndex(mUpperTransportLayerCallbacks.getIvIndex());
@@ -476,6 +514,7 @@ abstract class NetworkLayer extends LowerTransportLayer {
      * @return a complete {@link ControlMessage} or null if the message was unable to parsed
      */
     private ControlMessage parseSegmentedControlMessage(@NonNull final NetworkKey key, @NonNull final byte[] data, @NonNull final byte[] decryptedProxyPdu, final int ttl, final int src, final int dst) {
+
         if (segmentedControlMessagesMessages == null) {
             segmentedControlMessagesMessages = new SparseArray<>();
             segmentedControlMessagesMessages.put(0, data);
@@ -524,7 +563,6 @@ abstract class NetworkLayer extends LowerTransportLayer {
      * @return Obfuscated network header
      */
     private byte[] obfuscateNetworkHeader(final byte ctlTTL, @NonNull final byte[] sequenceNumber, final int src, @NonNull final byte[] pecb) {
-
         final ByteBuffer buffer = ByteBuffer.allocate(1 + sequenceNumber.length + 2).order(ByteOrder.BIG_ENDIAN);
         buffer.put(ctlTTL);
         buffer.put(sequenceNumber);   //sequence number

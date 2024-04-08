@@ -3,7 +3,6 @@ package no.nordicsemi.android.nrfmesh;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -17,7 +16,6 @@ import com.google.android.material.snackbar.Snackbar;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 import no.nordicsemi.android.nrfmesh.databinding.ActivityLogcatBinding;
 

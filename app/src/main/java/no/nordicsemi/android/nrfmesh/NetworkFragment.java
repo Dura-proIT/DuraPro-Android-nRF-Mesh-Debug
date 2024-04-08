@@ -100,8 +100,6 @@ public class NetworkFragment extends Fragment implements
 //        final MaterialCardView mCardView = binding.truckMain.card;
 
 
-
-
         // 顯示一開始卡車頁面
 //        noNetworksConfiguredView.setVisibility(View.INVISIBLE);
 //        mRecyclerViewNodes.setVisibility(View.INVISIBLE);
@@ -211,6 +209,7 @@ public class NetworkFragment extends Fragment implements
     @Override
     public void onItemDismiss(final RemovableViewHolder viewHolder) {
         final int position = viewHolder.getAdapterPosition();
+        Log.e("NetworkFragment", String.valueOf(position));
         if (!mNodeAdapter.isEmpty()) {
             final DialogFragmentDeleteNode fragmentDeleteNode = DialogFragmentDeleteNode.newInstance(position);
             fragmentDeleteNode.show(getChildFragmentManager(), null);

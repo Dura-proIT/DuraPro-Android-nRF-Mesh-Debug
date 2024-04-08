@@ -149,6 +149,8 @@ public class GroupControlsActivity extends AppCompatActivity implements
                 final BottomSheetVendorDialogFragment fragment = (BottomSheetVendorDialogFragment) getSupportFragmentManager().findFragmentByTag(VENDOR_FRAGMENT);
                 if (fragment != null)
                     fragment.setReceivedMessage(status.getAccessPayload());
+
+                status.getSrc();
             }
         });
 

@@ -30,7 +30,7 @@ import no.nordicsemi.android.mesh.control.TransportControlMessage;
 @SuppressWarnings("WeakerAccess")
 public final class ControlMessage extends Message {
 
-    protected SparseArray<byte[]> lowerTransportControlPdu = new SparseArray<>();
+    private SparseArray<byte[]> lowerTransportControlPdu = new SparseArray<>();
     private byte[] transportControlPdu;
     private TransportControlMessage transportControlMessage;
 

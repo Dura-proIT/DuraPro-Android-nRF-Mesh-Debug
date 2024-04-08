@@ -84,6 +84,7 @@ public class ProvisioningActivity extends AppCompatActivity implements
     private static final String DIALOG_FRAGMENT_PROVISIONING_FAILED = "DIALOG_FRAGMENT_PROVISIONING_FAILED";
     private static final String DIALOG_FRAGMENT_AUTH_INPUT_TAG = "DIALOG_FRAGMENT_AUTH_INPUT_TAG";
     private static final String DIALOG_FRAGMENT_CONFIGURATION_STATUS = "DIALOG_FRAGMENT_CONFIGURATION_STATUS";
+    public String newUnicastAddress;
 
     private ActivityMeshProvisionerBinding binding;
     private ProvisioningViewModel mViewModel;
@@ -201,8 +202,15 @@ public class ProvisioningActivity extends AppCompatActivity implements
                 binding.containerAppKeys.text.setText(getString(R.string.no_app_keys));
                 Log.e("顯示Log紀錄", getResources().getString(R.string.no_app_keys));
             }
+
+            // 取得UnicastAddress
+            newUnicastAddress = String.valueOf(meshNetworkLiveData.getMeshNetwork().getUnicastAddress());
+            Log.e("顯示Log紀錄","於OnCrate中顯示UnicastAddress(含New): "+ newUnicastAddress);
+
             binding.containerUnicast.text.setText(getString(R.string.hex_format,
                     String.format(Locale.US, "%04X", meshNetworkLiveData.getMeshNetwork().getUnicastAddress())));
+
+            Log.e("顯示Log紀錄","顯示16進制UnicastAddress文字框內容: "+ binding.containerUnicast.text.getText());
         });
 
         mViewModel.getUnprovisionedMeshNode().observe(this, meshNode -> {
@@ -295,13 +303,17 @@ public class ProvisioningActivity extends AppCompatActivity implements
     @Override
     public boolean onNodeNameUpdated(@NonNull final String nodeName) {
         mViewModel.getNetworkLiveData().setNodeName(nodeName);
+        newUnicastAddress = String.valueOf(mViewModel.getNetworkLiveData().getMeshNetwork().getUnicastAddress());
+        Log.e("顯示Log紀錄", "顯示onNodeNameUpdated" + newUnicastAddress);
         return true;
     }
 
+    // 節點的單播有進行更改
     @Override
     public boolean setUnicastAddress(final int unicastAddress) {
         final MeshNetwork network = mViewModel.getMeshManagerApi().getMeshNetwork();
         if (network != null) {
+            newUnicastAddress = String.valueOf(unicastAddress);
             return network.assignUnicastAddress(unicastAddress);
         }
         return false;
@@ -310,6 +322,8 @@ public class ProvisioningActivity extends AppCompatActivity implements
     @Override
     public int getNextUnicastAddress(final int elementCount) {
         final MeshNetwork network = mViewModel.getNetworkLiveData().getMeshNetwork();
+
+        newUnicastAddress = String.valueOf(network.getUnicastAddress());
         return network.nextAvailableUnicastAddress(elementCount, network.getSelectedProvisioner());
     }
 
@@ -341,42 +355,38 @@ public class ProvisioningActivity extends AppCompatActivity implements
                 if (provisionerProgress != null) {
                     final ProvisionerStates state = provisionerProgress.getState();
                     switch (state) {
-                        case PROVISIONING_FAILED:
+                        case PROVISIONING_FAILED -> {
                             if (getSupportFragmentManager().findFragmentByTag(DIALOG_FRAGMENT_PROVISIONING_FAILED) == null) {
                                 final String statusMessage = ProvisioningFailedState.parseProvisioningFailure(this, provisionerProgress.getStatusReceived());
                                 DialogFragmentProvisioningFailedError message = DialogFragmentProvisioningFailedError.newInstance(getString(R.string.title_error_provisioning_failed), statusMessage);
                                 Log.e("顯示Log紀錄", getResources().getString(R.string.title_error_provisioning_failed));
                                 message.show(getSupportFragmentManager(), DIALOG_FRAGMENT_PROVISIONING_FAILED);
                             }
-                            break;
-                        case PROVISIONING_AUTHENTICATION_STATIC_OOB_WAITING:
-                        case PROVISIONING_AUTHENTICATION_OUTPUT_OOB_WAITING:
-                        case PROVISIONING_AUTHENTICATION_INPUT_OOB_WAITING:
+                        }
+                        case PROVISIONING_AUTHENTICATION_STATIC_OOB_WAITING, PROVISIONING_AUTHENTICATION_OUTPUT_OOB_WAITING, PROVISIONING_AUTHENTICATION_INPUT_OOB_WAITING -> {
                             if (getSupportFragmentManager().findFragmentByTag(DIALOG_FRAGMENT_AUTH_INPUT_TAG) == null) {
                                 DialogFragmentAuthenticationInput dialogFragmentAuthenticationInput = DialogFragmentAuthenticationInput.
                                         newInstance(mViewModel.getUnprovisionedMeshNode().getValue());
                                 dialogFragmentAuthenticationInput.show(getSupportFragmentManager(), DIALOG_FRAGMENT_AUTH_INPUT_TAG);
                             }
-                            break;
-                        case PROVISIONING_AUTHENTICATION_INPUT_ENTERED:
+                        }
+                        case PROVISIONING_AUTHENTICATION_INPUT_ENTERED -> {
                             final DialogFragmentAuthenticationInput fragment = (DialogFragmentAuthenticationInput) getSupportFragmentManager().
                                     findFragmentByTag(DIALOG_FRAGMENT_AUTH_INPUT_TAG);
                             if (fragment != null)
                                 fragment.dismiss();
-                            break;
-                        case APP_KEY_STATUS_RECEIVED:
+                        }
+                        case APP_KEY_STATUS_RECEIVED -> {
                             if (getSupportFragmentManager().findFragmentByTag(DIALOG_FRAGMENT_CONFIGURATION_STATUS) == null) {
                                 DialogFragmentConfigurationComplete fragmentConfigComplete = DialogFragmentConfigurationComplete.
                                         newInstance(getString(R.string.title_configuration_compete), getString(R.string.configuration_complete_summary));
                                 Log.e("顯示Log紀錄", getResources().getString(R.string.configuration_complete_summary));
                                 fragmentConfigComplete.show(getSupportFragmentManager(), DIALOG_FRAGMENT_CONFIGURATION_STATUS);
                             }
-                            break;
-                        case PROVISIONER_UNASSIGNED:
-                            setResultIntent();
-                            break;
-                        default:
-                            break;
+                        }
+                        case PROVISIONER_UNASSIGNED -> setResultIntent();
+                        default -> {
+                        }
                     }
 
                 }
@@ -396,6 +406,15 @@ public class ProvisioningActivity extends AppCompatActivity implements
         if (mViewModel.isProvisioningComplete()) {
             returnIntent.putExtra(Utils.PROVISIONING_COMPLETED, true);
             setResult(Activity.RESULT_OK, returnIntent);
+            Log.e("ProvisioningActivity","車燈已配對完成");
+
+            // 取得車燈單撥位址(UnicastAddress)
+            mViewModel.getNetworkLiveData().observe(this, meshNetworkLiveData -> {
+                String unicast_address = String.valueOf(meshNetworkLiveData.getMeshNetwork().getUnicastAddress());
+                Log.e("顯示Log紀錄","寫入資料 UnicastAddress(含New): "+ newUnicastAddress);
+                Log.e("顯示Log紀錄","寫入資料 UnicastAddress: "+ unicast_address);
+            });
+
             final ProvisionerProgress progress = mViewModel.getProvisioningStatus().getProvisionerProgress();
             if (progress.getState() == ProvisionerStates.PROVISIONER_UNASSIGNED) {
                 returnIntent.putExtra(Utils.PROVISIONER_UNASSIGNED, true);

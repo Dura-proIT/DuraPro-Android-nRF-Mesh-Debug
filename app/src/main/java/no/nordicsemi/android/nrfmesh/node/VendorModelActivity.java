@@ -333,77 +333,66 @@ public class VendorModelActivity extends ModelConfigurationActivity {
                 layoutVendorModelControlsBinding.lamp.setColorFilter(Color.DKGRAY);
                 State = "OFF";
                 mViewModel.setState("OFF");
-            }
-            else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A003000092")){
+            } else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A003000092")){
                 layoutVendorModelControlsBinding.receivedMessage.setText(getResources().getString(R.string.device_control_error) + getResources().getString(R.string.all_state_text)  + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 Log.e("顯示Log紀錄", getResources().getString(R.string.received_message) + getResources().getString(R.string.device_control_error) + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 layoutVendorModelControlsBinding.lamp.setColorFilter(Color.RED);
                 State="Error";
                 mViewModel.setState("Error");
-            }
-            else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A003000192")){
+            } else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A003000192")){
                 layoutVendorModelControlsBinding.receivedMessage.setText(getResources().getString(R.string.device_control_error) + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 Log.e("顯示Log紀錄", getResources().getString(R.string.received_message) + getResources().getString(R.string.device_control_error) + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 layoutVendorModelControlsBinding.lamp.setColorFilter(Color.RED);
                 State="Error";
                 mViewModel.setState("Error");
-            }
-            else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A001")){
+            } else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A001")){
                 layoutVendorModelControlsBinding.receivedMessage.setText(getResources().getString(R.string.device_control_on) + getResources().getString(R.string.all_state_text)+ MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 Log.e("顯示Log紀錄", getResources().getString(R.string.received_message) + getResources().getString(R.string.device_control_on) + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 layoutVendorModelControlsBinding.lamp.setColorFilter(Color.YELLOW);
                 State = "ON";
                 mViewModel.setState("ON");
-            }
-            else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0B000")){
+            } else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0B000")){
                 layoutVendorModelControlsBinding.receivedMessage.setText(getResources().getString(R.string.device_control_remove_successful) + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 Log.e("顯示Log紀錄", getResources().getString(R.string.received_message) + getResources().getString(R.string.device_control_remove_successful) + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 layoutVendorModelControlsBinding.lamp.setColorFilter(Color.LTGRAY);
-            }
-            else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("92")){
+            } else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("92")){
                 layoutVendorModelControlsBinding.receivedMessage.setText(getResources().getString(R.string.device_control_error) + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 Log.e("顯示Log紀錄", getResources().getString(R.string.received_message) + getResources().getString(R.string.device_control_error) + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 layoutVendorModelControlsBinding.lamp.setColorFilter(Color.RED);
                 State="Error";
                 mViewModel.setState("Error");
-            }
-            else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A0030000")){
+            } else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A0030000")){
                 layoutVendorModelControlsBinding.receivedMessage.setText("OFF(Low)" + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 Log.e("顯示Log紀錄", getResources().getString(R.string.received_message) + "OFF(Low)" + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 layoutVendorModelControlsBinding.lamp.setColorFilter(Color.DKGRAY);
                 State="OFF";
                 mViewModel.setState("OFF");
-            }
-            else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A0030001")){
+            } else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A0030001")){
                 layoutVendorModelControlsBinding.receivedMessage.setText("ON(Low)" + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 Log.e("顯示Log紀錄", getResources().getString(R.string.received_message) + "ON(Low)" + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 layoutVendorModelControlsBinding.lamp.setColorFilter(Color.YELLOW);
                 State="ON";
                 mViewModel.setState("ON");
 
-            }
-            else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A0030010")){
+            } else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A0030010")){
                 layoutVendorModelControlsBinding.receivedMessage.setText("OFF(High)" + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 Log.e("顯示Log紀錄", getResources().getString(R.string.received_message) + "OFF(High)" + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 layoutVendorModelControlsBinding.lamp.setColorFilter(Color.DKGRAY);
                 State="OFF";
                 mViewModel.setState("OFF");
-            }
-
-            else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A0030011")) {
+            } else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A0030011")) {
                 layoutVendorModelControlsBinding.receivedMessage.setText("ON(High)" + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 Log.e("顯示Log紀錄", getResources().getString(R.string.received_message) + "ON(High)" + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 layoutVendorModelControlsBinding.lamp.setColorFilter(Color.YELLOW);
                 State = "ON";
                 mViewModel.setState("ON");
 
-            }else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A00301")){
+            } else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A00301")){
                 layoutVendorModelControlsBinding.receivedMessage.setText(getResources().getString(R.string.device_control_cmd_fail) + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 Log.e("顯示Log紀錄", getResources().getString(R.string.received_message) + getResources().getString(R.string.device_control_cmd_fail) + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 layoutVendorModelControlsBinding.lamp.setColorFilter(Color.LTGRAY);
                 State = "CMD Fail";
-            }
-            else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A0FC")){
+            }  else if(MeshParserUtils.bytesToHex(status.getAccessPayload(),false).contains("F0A0FC")){
                 layoutVendorModelControlsBinding.receivedMessage.setText(getResources().getString(R.string.device_control_remove_device) + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 Log.e("顯示Log紀錄", getResources().getString(R.string.received_message) + getResources().getString(R.string.device_control_remove_device) + getResources().getString(R.string.all_state_text) + MeshParserUtils.bytesToHex(status.getAccessPayload(),false));
                 layoutVendorModelControlsBinding.lamp.setColorFilter(Color.LTGRAY);
