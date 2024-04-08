@@ -36,8 +36,6 @@ public class LogcatActivity extends AppCompatActivity   {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-//        Log.e("顯示Log紀錄","進入Log紀錄");
-
         new Thread(() -> {
             try {
                 Process process = Runtime.getRuntime().exec("logcat -d");
@@ -89,23 +87,21 @@ public class LogcatActivity extends AppCompatActivity   {
             exitApp.setIcon(R.drawable.ic_help_outline_24dp);
             exitApp.setTitle(getResources().getString(R.string.logcat_clear_title))
                     .setMessage(getResources().getString(R.string.logcat_clear_message))
-                    .setPositiveButton(R.string.confirm, (dialog_1, id_) -> {
-                        new Thread(() -> {
-                            try {
-                                Runtime.getRuntime().exec("logcat -c");
+                    .setPositiveButton(R.string.confirm, (dialog_1, id_) -> new Thread(() -> {
+                        try {
+                            Runtime.getRuntime().exec("logcat -c");
 
-                                runOnUiThread(() -> {
-                                    // 更新 UI
-                                    TextView textView = binding.logcat;
-                                    textView.setText("");
-                                    Snackbar.make(findViewById(android.R.id.content), R.string.device_control_remove_successful, Snackbar.LENGTH_SHORT).show();
-                                });
+                            runOnUiThread(() -> {
+                                // 更新 UI
+                                TextView textView = binding.logcat;
+                                textView.setText("");
+                                Snackbar.make(findViewById(android.R.id.content), R.string.device_control_remove_successful, Snackbar.LENGTH_SHORT).show();
+                            });
 
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }).start();
-                    })
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }).start())
                     .setNegativeButton(getResources().getString(R.string.cancel), (dialog_1, which_1) -> {
                     }).show();
 
